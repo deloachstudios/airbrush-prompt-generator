@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>                                   	
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Airbrush Design Prompt Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>AIRBRUSH DESIGN PROMPT GENERATOR</h1>
+      <p class="sub">(Test Version)</p>
+      <p class="desc">Fill in the sections below. Copy the prompt at the bottom into your favorite image generator.</p>
+    </div>
+  </header>
+ 
+  <main class="wrap">
+    <!-- 1 NAME -->
+    <section class="card">
+      <div class="card-title">
+        <span class="badge">1</span>
+        <h2>NAME TEXT</h2>
+      </div>
+ 
+      <div class="grid-2">
+        <div>
+          <label>Name Line 1 <span class="req">*</span></label>
+          <input id="nameLine1" type="text" placeholder="BRYCE" />
+        </div>
+        <div>
+          <label>Name Line 2 <span class="muted">(optional)</span></label>
+          <input id="nameLine2" type="text" placeholder="JAMES" />
+        </div>
+      </div>
+ 
+      <div class="row">
+        <div class="block">
+          <label>Letter Style:</label>
+          <div class="btn-row" data-group="letterStyle">
+            <button class="btn pill" data-value="dripping">Dripping Letters</button>
+            <button class="btn pill" data-value="bubble">Bubble Graffiti</button>
+          </div>
+          <p class="hint">Click one. Styles will be expanded later.</p>
+        </div>
+      </div>
+ 
+      <div class="divider"></div>
+ 
+      <div class="row">
+        <div class="block">
+          <label>Name Color</label>
+          <div class="color-grid" data-group="nameColorPreset">
+            <button class="color-btn" data-color="Purple">Purple</button>
+            <button class="color-btn" data-color="Blue">Blue</button>
+            <button class="color-btn" data-color="Red">Red</button>
+            <button class="color-btn" data-color="Teal">Teal</button>
+            <button class="color-btn" data-color="Yellow">Yellow</button>
+            <button class="color-btn" data-color="Pink">Pink</button>
+            <button class="color-btn" data-color="Black">Black</button>
+            <button class="color-btn" data-color="White">White</button>
+          </div>
+ 
+          <div class="grid-2 mt">
+            <div>
+              <label>Custom color name <span class="muted">(optional)</span></label>
+              <input id="nameColorCustom" type="text" placeholder="Hot Pink" />
+            </div>
+            <div>
+              <label>HEX code <span class="muted">(optional)</span></label>
+              <input id="nameColorHex" type="text" placeholder="#FF2DAA" />
+            </div>
+          </div>
+          <p class="hint">HEX codes give the most precise color results.</p>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- 2 GRADIENT / EFFECTS -->
+    <section class="card">
+      <div class="card-title">
+        <span class="badge">2</span>
+        <h2>FILL & EFFECTS</h2>
+      </div>
+ 
+      <div class="row">
+        <div class="block">
+          <label>Fill Type:</label>
+          <div class="btn-row" data-group="fillType">
+            <button class="btn pill" data-value="solid">Solid</button>
+            <button class="btn pill" data-value="gradient">Gradient</button>
+          </div>
+          <p class="hint">If Gradient is selected, it blends Color A → Color B.</p>
+        </div>
+      </div>
+ 
+      <div class="row gradient-area" id="gradientArea">
+        <div class="block">
+          <label>Gradient Color A</label>
+          <div class="color-grid" data-group="gradAColorPreset">
+            <button class="color-btn" data-color="Purple">Purple</button>
+            <button class="color-btn" data-color="Blue">Blue</button>
+            <button class="color-btn" data-color="Red">Red</button>
+            <button class="color-btn" data-color="Teal">Teal</button>
+            <button class="color-btn" data-color="Yellow">Yellow</button>
+            <button class="color-btn" data-color="Pink">Pink</button>
+            <button class="color-btn" data-color="Black">Black</button>
+            <button class="color-btn" data-color="White">White</button>
+          </div>
+ 
+          <div class="grid-2 mt">
+            <div>
+              <label>Custom name <span class="muted">(optional)</span></label>
+              <input id="gradAColorCustom" type="text" placeholder="Royal Purple" />
+            </div>
+            <div>
+              <label>HEX <span class="muted">(optional)</span></label>
+              <input id="gradAColorHex" type="text" placeholder="#7B2CBF" />
+            </div>
+          </div>
+        </div>
+ 
+        <div class="block">
+          <label>Gradient Color B</label>
+          <div class="color-grid" data-group="gradBColorPreset">
+            <button class="color-btn" data-color="Purple">Purple</button>
+            <button class="color-btn" data-color="Blue">Blue</button>
+            <button class="color-btn" data-color="Red">Red</button>
+            <button class="color-btn" data-color="Teal">Teal</button>
+            <button class="color-btn" data-color="Yellow">Yellow</button>
+            <button class="color-btn" data-color="Pink">Pink</button>
+            <button class="color-btn" data-color="Black">Black</button>
+            <button class="color-btn" data-color="White">White</button>
+          </div>
+ 
+          <div class="grid-2 mt">
+            <div>
+              <label>Custom name <span class="muted">(optional)</span></label>
+              <input id="gradBColorCustom" type="text" placeholder="Teal" />
+            </div>
+            <div>
+              <label>HEX <span class="muted">(optional)</span></label>
+              <input id="gradBColorHex" type="text" placeholder="#00B4D8" />
+            </div>
+          </div>
+        </div>
+ 
+        <div class="block full">
+          <label>Gradient Direction:</label>
+          <div class="dir-grid" data-group="gradDir">
+            <button class="btn tiny" data-value="L→R">L→R</button>
+            <button class="btn tiny" data-value="R→L">R→L</button>
+            <button class="btn tiny" data-value="T→B">T→B</button>
+            <button class="btn tiny" data-value="B→T">B→T</button>
+            <button class="btn tiny" data-value="TL→BR">TL→BR</button>
+            <button class="btn tiny" data-value="BR→TL">BR→TL</button>
+            <button class="btn tiny" data-value="TR→BL">TR→BL</button>
+            <button class="btn tiny" data-value="BL→TR">BL→TR</button>
+          </div>
+ 
+          <div class="btn-row mt">
+            <button id="nextDir" class="btn action">Next Direction</button>
+            <button id="randDir" class="btn action alt">Random Direction</button>
+            <div class="dir-readout">Current: <span id="dirCurrent">L→R</span></div>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="divider"></div>
+ 
+      <div class="row">
+        <div class="block">
+          <label>Additional Effects (multi-select):</label>
+          <div class="btn-row" data-multi="effects">
+            <button class="btn pill" data-value="outline">Outline</button>
+            <button class="btn pill" data-value="glow">Glow</button>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- 3 ELEMENTS -->
+    <section class="card">
+      <div class="card-title">
+        <span class="badge">3</span>
+        <h2>ELEMENTS & DETAILS</h2>
+      </div>
+ 
+      <div class="row">
+        <div class="block">
+          <label>Elements to include</label>
+          <input id="elementsList" type="text" placeholder="dinosaurs, footballs, gold rings" />
+        </div>
+      </div>
+ 
+      <div class="row">
+        <div class="block">
+          <label>Element color notes <span class="muted">(optional)</span></label>
+          <input id="elementColorNotes" type="text" placeholder="green, orange, yellow" />
+        </div>
+      </div>
+ 
+      <div class="row">
+        <div class="block">
+          <label>Extra details <span class="muted">(optional)</span></label>
+          <input id="elementExtraDetails" type="text" placeholder="sparkles, mist, glossy highlights" />
+          <p class="hint">Comma-separated works best.</p>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- 4 BACKGROUND -->
+    <section class="card">
+      <div class="card-title">
+        <span class="badge">4</span>
+        <h2>BACKGROUND</h2>
+      </div>
+ 
+      <div class="row">
+        <div class="block">
+          <label>Background description <span class="muted">(optional)</span></label>
+          <input id="backgroundDesc" type="text" placeholder="football field under stadium lights" />
+          <p class="hint">If left blank, default will be a clean white background.</p>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- 5 BOTTOM TEXT -->
+    <section class="card">
+      <div class="card-title">
+        <span class="badge">5</span>
+        <h2>BOTTOM TEXT</h2>
+      </div>
+ 
+      <div class="row">
+        <div class="block">
+          <label>Include Bottom Text?</label>
+          <div class="btn-row" data-group="bottomOnOff">
+            <button class="btn pill" data-value="on">ON</button>
+            <button class="btn pill" data-value="off">OFF</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div id="bottomArea" class="bottom-area">
+        <div class="grid-2">
+          <div>
+            <label>Bottom Text Line 1</label>
+            <input id="bottomLine1" type="text" placeholder="Est. 2019" />
+          </div>
+          <div>
+            <label>Bottom Text Line 2 <span class="muted">(optional)</span></label>
+            <input id="bottomLine2" type="text" placeholder="" />
+          </div>
+        </div>
+ 
+        <div class="divider"></div>
+ 
+        <div class="row">
+          <div class="block">
+            <label>Bottom Text Color</label>
+            <div class="color-grid" data-group="bottomColorPreset">
+              <button class="color-btn" data-color="Purple">Purple</button>
+              <button class="color-btn" data-color="Blue">Blue</button>
+              <button class="color-btn" data-color="Red">Red</button>
+              <button class="color-btn" data-color="Teal">Teal</button>
+              <button class="color-btn" data-color="Yellow">Yellow</button>
+              <button class="color-btn" data-color="Pink">Pink</button>
+              <button class="color-btn" data-color="Black">Black</button>
+              <button class="color-btn" data-color="White">White</button>
+            </div>
+ 
+            <div class="grid-2 mt">
+              <div>
+                <label>Bottom text color name <span class="muted">(optional)</span></label>
+                <input id="bottomColorCustom" type="text" placeholder="" />
+              </div>
+              <div>
+                <label>Bottom text HEX <span class="muted">(optional)</span></label>
+                <input id="bottomColorHex" type="text" placeholder="" />
+              </div>
+            </div>
+ 
+            <p class="hint">Leave blank to use the name color.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- 6 TRANSPARENCY -->
+    <section class="card">
+      <div class="card-title">
+        <span class="badge">6</span>
+        <h2>BACKGROUND TYPE</h2>
+      </div>
+ 
+      <div class="row">
+        <div class="block">
+          <div class="btn-row" data-group="transparentOnOff">
+            <button class="btn pill" data-value="on">Transparent ON</button>
+            <button class="btn pill" data-value="off">Transparent OFF</button>
+          </div>
+          <p class="hint">ON = PNG-style. OFF = solid background (defaults to white).</p>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- 7 OUTPUT -->
+    <section class="card output">
+      <div class="card-title">
+        <span class="badge">★</span>
+        <h2>GENERATED PROMPT <span class="muted">(Copy This)</span></h2>
+      </div>
+ 
+      <textarea id="promptOut" readonly rows="7"></textarea>
+ 
+      <div class="prompt-status" aria-live="polite">
+        <span id="generatedAt">Generated: --:--</span>
+        <span class="status-sep">|</span>
+        <span id="copiedAt">Copied: Not yet</span>
+      </div>
+ 
+      <div class="btn-row mt">
+        <button id="copyPrompt" class="btn big">COPY PROMPT</button>
+        <button id="resetAll" class="btn big ghost">RESET</button>
+      </div>
+ 
+      <div class="terms">
+        <strong>License:</strong> You may sell designs created using this generator. You may <strong>NOT</strong> sell, share, repost, or claim the generator as your own. Violations result in immediate access removal. <strong>No refunds.</strong>
+      </div>
+    </section>
+ 
+    <footer class="foot">
+      DeLoach Studios Airbrush Prompt Generator • Test Version
+    </footer>
+  </main>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
+ 
+ 
+
